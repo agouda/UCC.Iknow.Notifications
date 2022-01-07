@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.VisualWebPart" DefaultFile="VisualNotificationsUserControl.ascx" SupportedTrustLevels="FullTrust" SupportedDeploymentScopes="Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="VisualNotifications\" Type="ElementManifest" />
+    <ProjectItemFile Source="VisualNotifications.webpart" Target="VisualNotifications\" Type="ElementFile" />
+    <ProjectItemFile Source="VisualNotificationsUserControl.ascx" Target="CONTROLTEMPLATES\UCC.Iknow.Notifications.TEMP\VisualNotifications\" Type="TemplateFile" />
+  </Files>
+  <SafeControls>
+    <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="UCC.Iknow.Notifications.TEMP.VisualNotifications" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />
+  </SafeControls>
+</ProjectItem>

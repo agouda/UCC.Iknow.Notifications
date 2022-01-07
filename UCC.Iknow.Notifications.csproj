@@ -1,0 +1,116 @@
+﻿<Project ToolsVersion="16.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D6DA9725-84A1-4782-BA8D-83F80C41B7BE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UCC.Iknow.Notifications</RootNamespace>
+    <AssemblyName>UCC.Iknow.Notifications</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetOfficeVersion>19.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
+    <MinimumOfficeToolsVersion>14.1</MinimumOfficeToolsVersion>
+    <SandboxedSolution>False</SandboxedSolution>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Common Files\microsoft shared\Web Server Extensions\16\ISAPI\Microsoft.SharePoint.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Features\UCC.Iknow.Notifications.Feature\UCC.Iknow.Notifications.EventReceiver.cs">
+      <DependentUpon>UCC.Iknow.Notifications.Feature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\SPLogger.cs" />
+    <Compile Include="Helpers\Utilities.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TEMP\VisualNotifications\VisualNotifications.cs" />
+    <Compile Include="TEMP\VisualNotifications\VisualNotificationsUserControl.ascx.cs">
+      <DependentUpon>VisualNotificationsUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TEMP\VisualNotifications\VisualNotificationsUserControl.ascx.designer.cs">
+      <DependentUpon>VisualNotificationsUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimerJobs\NotificationTimerJob.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Features\UCC.Iknow.Notifications.Temp.Feature\UCC.Iknow.Notifications.Temp.Feature.feature">
+      <FeatureId>{64af1de0-eb9d-45b9-b0a0-d46906f43865}</FeatureId>
+    </None>
+    <None Include="Features\UCC.Iknow.Notifications.Feature\UCC.Iknow.Notifications.Feature.feature">
+      <FeatureId>{62a78877-c502-408d-912a-a39aa84f8533}</FeatureId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e013622f-7d1d-4f47-91f0-0ffe63a865f2}</SharePointProjectItemId>
+    </None>
+    <None Include="Package\Package.package">
+      <PackageId>{8b410460-b420-4a6b-976a-ff52ff1b31fe}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="TEMP\VisualNotifications\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{7aed3dd5-821f-4461-884e-705387abdf4b}</SharePointProjectItemId>
+    </None>
+    <None Include="TEMP\VisualNotifications\VisualNotifications.webpart" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Features\UCC.Iknow.Notifications.Temp.Feature\UCC.Iknow.Notifications.Temp.Feature.Template.xml">
+      <DependentUpon>UCC.Iknow.Notifications.Temp.Feature.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\UCC.Iknow.Notifications.Feature\UCC.Iknow.Notifications.Feature.Template.xml">
+      <DependentUpon>UCC.Iknow.Notifications.Feature.feature</DependentUpon>
+    </Content>
+    <Content Include="Layouts\UCC.Iknow.Notifications\Templates\Notification.html" />
+    <Content Include="TEMP\VisualNotifications\Elements.xml" />
+    <Content Include="TEMP\VisualNotifications\VisualNotificationsUserControl.ascx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

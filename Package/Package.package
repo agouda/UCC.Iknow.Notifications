@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="8b410460-b420-4a6b-976a-ff52ff1b31fe" solutionId="8b410460-b420-4a6b-976a-ff52ff1b31fe" resetWebServer="false" sharePointProductVersion="19.0" name="UCC.Iknow.Notifications" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="62a78877-c502-408d-912a-a39aa84f8533" />
+    <featureReference itemId="64af1de0-eb9d-45b9-b0a0-d46906f43865" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="e013622f-7d1d-4f47-91f0-0ffe63a865f2" />
+  </projectItems>
+</package>
